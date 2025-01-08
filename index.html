@@ -33,43 +33,24 @@
       position: absolute;
       z-index: 10;
     }
-    .text-content {
-      display: none;
-      color: white;
-      font-size: 14px;
-      line-height: 1.6;
-      width: 80%;
-      margin: 0 auto;
-      padding: 20px 40px;
-      text-align: justify;
-      z-index: 11;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
   </style>
 </head>
 <body>
   <img src="Acronicta_afflicta1.jpg" alt="Centered Image" class="centered-image">
   <button class="play-button" onclick="startEffects()"></button>
-  <div class="text-content">
-    <p></p>
-  </div>
   <audio id="myAudio" src="creepy-space-198471.mp3"></audio>
   <script>
     function startEffects() {
       document.querySelector('.play-button').style.display = 'none';
-      document.querySelector('.text-content').style.display = 'block';
       
       // Play the audio
       document.getElementById('myAudio').play();
       
-      // Flicker effect
-      let isNegative = false;
+      // Flicker effect on the image
+      let isFlicker = false;
       setInterval(function() {
-        isNegative = !isNegative;
-        document.body.style.filter = isNegative ? 'invert(100%)' : 'invert(0%)';
+        isFlicker = !isFlicker;
+        document.querySelector('.centered-image').style.opacity = isFlicker ? '0' : '1';
       }, 200); // 200 milliseconds = 1/5 second
     }
   </script>
