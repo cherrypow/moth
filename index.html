@@ -58,11 +58,7 @@
       let isNegative = false;
       setInterval(function() {
         isNegative = !isNegative;
-        if (isNegative) {
-          document.body.style.filter = 'invert(100%)';
-        } else {
-          document.body.style.filter = 'none';
-        }
+        document.body.style.filter = isNegative ? 'invert(100%)' : 'none';
       }, 200); // 200 milliseconds = 1/5 second
     }
   </script>
