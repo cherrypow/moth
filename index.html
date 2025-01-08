@@ -22,6 +22,7 @@
       max-height: 100%;
       position: relative;
       z-index: 1;
+      display: none; /* Hide the image initially */
     }
     .play-button {
       width: 100px;
@@ -38,20 +39,30 @@
 <body>
   <img src="Acronicta_afflicta1.jpg" alt="Centered Image" class="centered-image">
   <button class="play-button" onclick="startEffects()"></button>
-    <audio id="myAudio" loop>
+  <audio id="myAudio" loop>
     <source src="https://raw.githubusercontent.com/cherrypow/moth/main/creepy-space-198741.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
   <script>
     function startEffects() {
+      // Show the image
+      document.querySelector('.centered-image').style.display = 'block';
+      
+      // Hide the button
       document.querySelector('.play-button').style.display = 'none';
       
       // Play the audio
       document.getElementById('myAudio').play();
       
-      // Flicker effect on the image
-      let isFlicker = false;
+      // Flicker effect on the whole screen (negative effect)
+      let isNegative = false;
       setInterval(function() {
-        isFlicker = !isFlicker;
-        document.querySelector('.centered-image').style.opacity = isFlicker ? '0' : '1';
+        isNegative = !isNegative;
+        if (isNegative) {
+          document.body.style.filter = 'invert(100%)';
+        } else {
+          document.body.style.filter = 'none';
+        }
       }, 200); // 200 milliseconds = 1/5 second
     }
   </script>
