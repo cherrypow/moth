@@ -39,10 +39,19 @@
 <body>
   <img src="Acronicta_afflicta1.jpg" alt="Centered Image" class="centered-image">
   <button class="play-button" onclick="startEffects()"></button>
+  
+  <!-- First audio element -->
   <audio id="myAudio" loop>
     <source src="https://raw.githubusercontent.com/cherrypow/moth/main/creepy-space-198471.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
+  
+  <!-- Second audio element -->
+  <audio id="secondAudio" loop>
+    <source src="https://raw.githubusercontent.com/cherrypow/moth/main/Recording_B_minor__bpm_55.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
   <script>
     function startEffects() {
       // Show the image
@@ -51,8 +60,9 @@
       // Hide the button
       document.querySelector('.play-button').style.display = 'none';
       
-      // Play the audio
+      // Play both audios
       document.getElementById('myAudio').play();
+      document.getElementById('secondAudio').play();
       
       // Flicker effect on the whole screen (negative effect)
       let isNegative = false;
